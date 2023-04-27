@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT TicketHive</title>
+    
+
+    <style>
+  
+.auto-typer {
+  overflow: hidden;
+}
+
+.auto-typer h1 {
+  font-size: 18px;
+  color: #020401;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid #333333;
+  animation: typing 8s steps(40, end),
+             blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #333 }
+}
+
+
+
+
+.title-container {
+  background-color: #5c85f6;
+  background-image: linear-gradient(315deg, #5c7df6 0%, #ED553B 100%);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.auto-typer {
+  font-size: 55px;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid #333;
+  animation: typing 4s steps(40, end) infinite,
+             blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #333 }
+}
+    </style>
+    <script src="javascript/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/utilis.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+
+    <script src="javascript/app.js"></script>
+    <script src="javascript/web3.min.js"></script>
+    <script>
+        function getpersonidDetails() {
+            PersonIDno = document.getElementById("PersonIDno").value;
+            myContract.methods.personidDetails(PersonIDno)
+                .call({ from: ethereum.selectedAddress })
+                .then((result) => {
+                    console.log("Student Details: " + result);
+                    localStorage.setItem("Student ID", PersonIDno);
+                    localStorage.setItem("Student Name", result.Name);
+                    localStorage.setItem("Experience", result.Experience);
+                    localStorage.setItem("College Name", result.Orgnanization_or_CollegeName);
+                    localStorage.setItem("EmailID_AND_PhoneNo", result.EmailID_AND_PhoneNo);
+
+                    localStorage.setItem("Connected", result);
+
+
+                    // document.getElementById("Connected").innerHTML = localStorage.getItem("Connected");
+
+
+                    var url = "idcard.html";
+                    window.location.href = url;
+                })
+        }
+
+        // window.onload =function () {
+          
+        //     document.getElementById("Connected").innerHTML = localStorage.getItem("Connected");
+        // };
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="/img/logo1.png" style="width:28px" alt=""></a></li>
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="about.html">About</a></li> -->
+                <li><a href="issueid.html">IssueTickets</a></li>
+                <li><a href="help.html">Help</a></li>
+                <!-- <li><input type="text" placeholder="Search..."><button>Search</button></li> -->
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="title-container">
+            <h1 class="auto-typer">NFT TicketHive</h1>
+        </div>
+        <div class="auto-typer">
+            <h1>Join the revolution in event ticketing with our cutting-edge dapp, powered by NFTs and blockchain technology.</h1>
+        </div>
+
+        <button onclick="connectToMetMask()">
+            <h2><img src="/img/metamask (3).png" alt="">    Connect To Metamask </h2>
+            
+            <!-- <p> Note: Only Connect with Sepolia (11155111) network ETH </p> -->
+           <b> Connected Account-
+            <span id="Connected"></span></b>
+            <br>
+            Note: Only Connect with Sepolia (11155111) network ETH 
+
+        </button>
+
+        <div class="main-container">
+
+
+
+            <!-- <img src="https://picsum.photos/seed/stu/600/" alt=""> -->
+
+            <div class="container01">
+                <div class="container011">
+                    <p class="heading">
+                    <h2>
+                        FIND YOUR <p style="color:#fa8846 ;  ">NFT</p> <p style="color:#7f46fa ;">BLOCKCHAIN</p> BASSED EVENT TICKET
+                    </h2>
+                    </p>
+                    <br>
+                    <p>
+                    <h3>Just put your Ticket ID</h3>
+                    </p>
+
+                </div>
+                <div class="container012">
+                    <p>
+                    <h2>Event ID No</h2>
+                    Phone no > EventID
+                    </p>
+                    <input id="PersonIDno" type="text" placeholder="Like-8449879510">
+                    <br>
+
+                    <button onclick="getpersonidDetails()"><b>Find Approved Tickets</b></button>
+                    <h5>Experimented Id- 8449879510</h5>
+
+                </div>
+            </div>
+
+
+            <div class="container02"></div>
+            <div class="container03"></div>
+            <div class="logo_images">
+   
+                <a href="https://spheron.network/"><img src="/img/spheron_image.png" alt=""
+                        style="width: 12.069059vw; height:7vw" srcset=""></a>
+                <a href="https://filecoin.io/"> <img src="/img/filecoin_image.png" alt=""
+                        style="width: 12.069059vw; height:7vw" srcset=""></a>
+                <a href="https://www.alchemy.com/"><img src="/img/Alchemy_image" alt="" style="width: 12.069059vw; height:7vw"
+                        srcset=""></a>
+                <a href="https://ipfs.io/"> <img src="/img/ipfs_image.png" alt="" style="width: 12.069059vw; height:7vw"
+                        srcset=""></a>
+                <a href="https://metamask.io/"><img src="/img/metamask_image.png" alt=""
+                        style="width: 12.069059vw; height:7vw" srcset=""></a>
+                <a href="https://hardhat.org/"><img src="/img/hardhat_image.jfif" alt=""
+                        style="width: 12.069059vw; height:7vw" srcset=""></a>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+
+        <div class="all-item-center ">
+
+            <p>CopyRight &copy; Arpit Singh </p>
+        </div>
+    </footer>
+</body>
+
+
+</html>

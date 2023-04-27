@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approved</title>
+
+<style>
+    .auto-typer {
+  overflow: hidden;
+}
+
+.auto-typer h1 {
+  font-size: 48px;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid #333;
+  animation: typing 4s steps(40, end),
+             blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #333 }
+}
+</style>
+
+    <script src="javascript/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/utilis.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <script src="javascript/app.js"></script>
+    <script src="javascript/web3.min.js"></script>
+   
+
+    <script>
+        window.onload = function () {
+            document.getElementById("personid").innerHTML = localStorage.getItem("Student ID");
+            document.getElementById("Name").innerHTML = localStorage.getItem("Student Name");
+            document.getElementById("Orgnanization_or_CollegeName").innerHTML = localStorage.getItem("College Name");
+            document.getElementById("Experience").innerHTML = localStorage.getItem("Experience"); 
+            document.getElementById("EmailID_AND_PhoneNo").innerHTML = localStorage.getItem("EmailID_AND_PhoneNo");
+
+            document.getElementById("name").innerHTML = localStorage.getItem("Student Name");
+        };
+    </script>
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="/img/logo1.png" style="width:28px" alt=""></a></li>
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="about.html">About</a></li> -->
+                <li><a href="issueid.html">Issue ID</a></li>
+                <li><a href="help.html">Help</a></li>
+                <!-- <li><input type="text" placeholder="Search..."><button>Search</button></li> -->
+
+            </ul>
+        </nav>
+    </header>
+        <h1 style="color: rgb(13, 180, 80)">Hey <span id="name"></span>You Event Ticket Approved by Event Ogrnanizer Join this Event and meet new people and learn</h1>
+
+
+    <main>
+
+        <div class="idcard00">
+            <div class="idcard-main">
+                <div class="idcard01"> </div>
+                <div class="idcard02"> </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="box">
+            <div class="image-dp">
+
+            </div>
+            <div class="detail">
+                <b>Student ID-</b>
+                <span id="personid"></span>
+                <b>Student Name-</b>
+                <span id="Name"></span>
+                <br>
+                <b>College Name-</b>
+                <span id="Orgnanization_or_CollegeName"></span>
+                <br>
+                <b>Experience-</b>
+                <span id="Experience"></span>
+                <br>
+                <b>EmailID_AND_PhoneNo- </b>
+                <span id="EmailID_AND_PhoneNo"></span><br>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <footer>
+
+        <div class="all-item-center ">
+
+            <p>CopyRight &copy; Arpit Singh </p>
+        </div>
+    </footer>
+</body>
+<script>
+    var text = "Hey [Name], Your Event Ticket is Approved by Event Organizer. Join this Event and meet new people and learn.";
+    var speed = 50; // The speed of typing in milliseconds
+    var i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            if (text[i] == '[') {
+                var name = document.getElementById("name").innerText;
+                i = text.indexOf(']') + 1;
+                document.getElementById("name").innerText = name + ",";
+            } else {
+                document.getElementById("name").innerText += text.charAt(i);
+                i++;
+            }
+            setTimeout(typeWriter, speed);
+        }
+    }
+    typeWriter();
+</script>
+
+</html>

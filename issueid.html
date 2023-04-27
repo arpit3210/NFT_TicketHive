@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue ID Card</title>
+    <style>
+		body {
+			background-color: #171717;
+			color: #fff;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			color: #4B0082;
+			font-size: 3em;
+			margin-top: 50px;
+			margin-bottom: 20px;
+			text-align: center;
+			text-shadow: 2px 2px #DFFF00;
+		}
+
+		h2 {
+			color: #4B0082;
+			font-size: 2em;
+			margin-top: 50px;
+			margin-bottom: 20px;
+			text-align: center;
+			text-shadow: 2px 2px #DFFF00;
+		}
+
+		button {
+			background-color: #FF4500;
+			border: none;
+			border-radius: 5px;
+			color: #fff;
+			cursor: pointer;
+			font-size: 1.5em;
+			padding: 10px 20px;
+			text-shadow: 2px 2px #DFFF00;
+			transition: all 0.2s ease-in-out;
+		}
+
+		button:hover {
+			background-color: #ffa07a;
+			transform: scale(1.1);
+		}
+
+		.issueidcard {
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 2px 2px 10px #4B0082;
+			margin: 50px auto;
+			padding: 20px;
+			width: 80%;
+		}
+
+		input[type="text"] {
+			border: none;
+			border-radius: 5px;
+			font-size: 1.2em;
+			margin: 5px 0;
+			padding: 10px;
+			width: 100%;
+		}
+
+		input[type="text"]:focus {
+			outline: none;
+			box-shadow: 0px 0px 5px #4B0082;
+		}
+	</style>
+    <script src="javascript/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/utilis.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <script src="javascript/app.js"></script>
+    <script src="javascript/web3.min.js"></script>
+    <script>
+        function issueID() {
+            _ID = document.getElementById("PersonIDno").value;
+            Name = document.getElementById("Name").value;
+            Experience = document.getElementById("Experience").value;
+            Orgnanization_or_CollegeName = document.getElementById("Orgnanization_or_CollegeName").value;
+            EmailID_AND_PhoneNo = document.getElementById("EmailID_AND_PhoneNo").value;
+
+            myContract.methods.newPersonID(_ID, Name, Experience, Orgnanization_or_CollegeName, EmailID_AND_PhoneNo)
+                .send({ from: ethereum.selectedAddress, gasLimit: "927000" }).then((txn) => {
+                    console.log("Transaction Recipt: ", txn);
+                    alert("Ticket ID Issue with Number: " + _ID);
+                })
+        }
+
+        
+
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="/img/logo1.png" style="width:28px" alt=""></a></li>
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="about.html">About</a></li> -->
+                <li><a href="issueid.html">Issue TicketID</a></li>
+                <li><a href="help.html">Help</a></li>
+                <!-- <li><input type="text" placeholder="Search..."><button>Search</button></li> -->
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- <main>
+
+        <p style="color:white">Only Event Organizer can Issue</p>
+
+        <button>
+            <button onclick="connectToMetMask()"><h2>Connect To Metamask</h2></button>
+            <b> Connected Account-
+                <span id="Connected"></span></b>
+                <br>
+        </button>
+
+        <div class="issueidcard">
+
+            <h1>Issue Tickets for Events</h1>
+            <b>Phone No</b>
+            <input id="PersonIDno" type="text" placeholder="00036CUNY">
+            <b>Your Name</b>
+            <input id="Name" type="text" placeholder="Arpit Singh">
+            <b>Year of Experience</b>
+            <input id="Experience" type="text" placeholder="Computer Science..">
+            <b>Orgnanization or College Name</b> if your Studfent Just put your college name
+            <input id="Orgnanization_or_CollegeName" type="text" placeholder="Columbia University NY">
+            <b>EmailID_AND_PhoneNo</b>
+            <input id="EmailID_AND_PhoneNo" type="text" placeholder="2022">
+
+            <button onclick="issueID()">Submit & Issue Ticket</button>
+
+
+
+
+        </div>
+
+
+    </main> -->
+    <main>
+		<h1>How to Obtain Event Tickets</h1>
+
+		<button onclick="connectToMetMask()"><h2>Connect to Metamask and Confirm Ticket</h2></button>
+		<b>Connected Account: <span id="Connected"></span></b>
+
+		<div class="issueidcard">
+
+			<h2>Issue Tickets for Events</h2>
+			<b>Phone No:</b>
+			<input id="PersonIDno" type="text" placeholder="00036CUNY">
+			<b>Your Name:</b>
+			<input id="Name" type="text" placeholder="Arpit Singh">
+			<b>Year of Experience:</b>
+			<input id="Experience" type="text" placeholder="Computer Science..">
+			<b>Organization or College Name:</b> If you're a student, just put your college name.
+			<input id="Orgnanization_or_CollegeName" type="text" placeholder="Columbia University NY">
+			<b>Email ID and Phone No:</b>
+			<input id="EmailID_AND_PhoneNo" type="text" placeholder="2022">
+
+			<button onclick="issueID()">Submit and Issue Ticket</button>
+		</div>
+	</main>
+
+    <footer>
+
+        <div class="all-item-center ">
+
+            <p>CopyRight &copy; Arpit Singh </p>
+        </div>
+    </footer>
+</body>
+
+
+</html>
