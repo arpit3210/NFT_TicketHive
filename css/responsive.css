@@ -22,7 +22,7 @@
     .container011 
     {
         /* background-color: green; */
-        height: 150px;
+        height: 191px;
         width: 277px;
         /* font-size: 1vh; */
         font-weight: 1500;
@@ -34,7 +34,7 @@
         overflow: hidden;
         color: white;
         margin: 20px;
-        scale: 1.1;
+        /* scale: 1.1; */
     }
     .container012
     {
