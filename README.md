@@ -2,6 +2,11 @@ NFT TicketHive
 
 Welcome to NFT TicketHive, where we offer a revolutionary approach to event ticketing. Our NFT-based tickets are powered by blockchain technology, ensuring that your ticket lasts forever. With NFT TicketHive, you can own a valuable digital asset that guarantees the authenticity and uniqueness of your ticket.
 
+Here is the Demo Video which will help you to understand what is this project about, How this works?
+NFT TicketHive.mp4
+
+
+
 Features
 Purchase NFT-based event tickets online
 Store your tickets in your digital wallet
@@ -9,7 +14,7 @@ Enjoy unique attributes and collectibles with each ticket
 Showcase your tickets on social media
 Have confidence in the authenticity and uniqueness of your ticket
 Getting Started
-Clone this repository: git clone https://github.com/your-username/NFT-TicketHive.git
+Clone this repository: git clone https://github.com/arpit3210/NFT_TicketHive
 Install the necessary dependencies: npm install
 Start the server: npm start
 Open the application in your browser at http://localhost:3000
